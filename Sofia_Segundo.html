@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a1110">
+<title>SOFÍA.exe | Portafolio de Evidencias</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #0a1110;
+  --panel: #101a17;
+  --lime: #b7f774;
+  --white: #edf4ed;
+  --muted: #8b9b90;
+  --line: #29372e;
+  --mono: 'DM Mono', monospace;
+  --sans: 'Manrope', sans-serif;
+}
+
+*, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: radial-gradient(ellipse at 75% 0%, #193024 0%, transparent 38%), var(--bg);
+  color: var(--white);
+  font-family: var(--sans);
+  line-height: 1.7;
+  padding: 25px;
+}
+
+a { color: inherit; text-decoration: none; }
+.shell { max-width: 1150px; margin: auto; }
+
+/* NAVEGACIÓN */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 0 25px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand { font: 500 14px var(--mono); color: var(--lime); }
+.brand span { color: var(--muted); }
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.nav-links a:hover { color: var(--lime); }
+
+.status {
+  font: 10px var(--mono);
+  color: var(--lime);
+  border: 1px solid #415e3c;
+  padding: 7px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.status::before { content: "●"; margin-right: 7px; }
+
+/* PRESENTACIÓN */
+.hero {
+  padding: 76px 0 65px;
+  display: grid;
+  grid-template-columns: 1fr 270px;
+  gap: 45px;
+  align-items: center;
+}
+
+.kicker {
+  font: 11px var(--mono);
+  letter-spacing: 2px;
+  color: var(--lime);
+  margin-bottom: 24px;
+}
+
+h1 {
+  font-size: clamp(48px, 8vw, 91px);
+  line-height: .99;
+  letter-spacing: -6px;
+  font-weight: 800;
+}
+
+h1 span { display: block; color: var(--lime); }
+
+.hero-description {
+  margin-top: 27px;
+  max-width: 570px;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--muted);
+}
+
+/* TARJETA DE IDENTIDAD */
+.identity {
+  border: 1px solid #3b4d3d;
+  background: linear-gradient(145deg, #18261e, #101714);
+  padding: 23px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.identity-top {
+  font: 10px var(--mono);
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-photo {
+  width: 108px;
+  height: 108px;
+  margin: 30px auto;
+  border: 2px solid var(--lime);
+  border-radius: 50%;
+  overflow: hidden;
+  background: #142019;
+  box-shadow: 0 0 30px #b7f77420;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.identity-name { font-size: 17px; font-weight: 800; text-align: center; }
+.identity-role { color: var(--muted); font: 10px var(--mono); text-align: center; margin-top: 5px; }
+
+.identity-bottom {
+  margin-top: 20px;
+  padding-top: 17px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  font: 10px var(--mono);
+}
+
+.identity-bottom span:last-child { color: var(--lime); }
+
+/* SECCIONES GENERALES */
+.section { padding-top: 75px; }
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 27px;
+}
+
+.section-number {
+  color: var(--lime);
+  font: 11px var(--mono);
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: clamp(25px, 4vw, 36px);
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+
+.section-note { font: 10px var(--mono); color: var(--muted); }
+
+/* GRUPOS Y TARJETAS */
+.groups { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 17px; margin-top: 24px; align-items: stretch; }
+.group { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; min-width: 0; }
+.group-head { padding: 19px 18px 15px; border-bottom: 1px solid var(--line); background: #142019; }
+.group-head h2 { font-size: 16px; line-height: 1.35; margin: 0 0 5px; color: var(--lime); }
+.group-head p { font-size: 11px; margin: 0; color: var(--muted); line-height: 1.5; }
+
+.group-body { padding: 16px; display: flex; flex-direction: column; gap: 16px; }
+.activity-box {
+  background: #142019;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.activity-box h3 {
+  font-size: 16px;
+  color: var(--lime);
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+}
+
+/* IMÁGENES DE LAS ACTIVIDADES */
+.evidence-img-container {
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  margin-bottom: 12px;
+  background: #0d1613;
+}
+
+.evidence-img-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.activity-detail {
+  margin-bottom: 12px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.activity-detail strong {
+  color: var(--lime);
+  display: block;
+  font-size: 11px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+.activity-detail p {
+  color: var(--white);
+  margin: 0;
+}
+
+.activity-detail ul {
+  padding-left: 16px;
+  color: #bdc9bf;
+  margin: 6px 0 0;
+}
+
+.activity-detail p.italic {
+  font-style: italic;
+  color: #bdc9bf;
+  background: #0d1613;
+  padding: 8px 10px;
+  border-left: 2px solid var(--lime);
+  border-radius: 3px;
+}
+
+.action-btn {
+  display: block;
+  margin-top: 10px;
+  background: #193024;
+  color: var(--lime);
+  border: 1px solid #415e3c;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 11px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background: var(--lime);
+  color: var(--bg);
+}
+
+.download-btn {
+  display: block;
+  margin-top: 14px;
+  background: var(--lime);
+  color: var(--bg);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 12px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.download-btn:hover { background: #d1ff9f; }
+
+/* PIE DE PÁGINA */
+.footer {
+  margin-top: 75px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: var(--muted);
+  font: 10px var(--mono);
+}
+.footer span:first-child { color: var(--lime); }
+
+@media (max-width: 900px) {
+  .groups { grid-template-columns: 1fr; }
+  .hero { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+<div class="shell">
+
+  <!-- NAVEGACIÓN -->
+  <nav class="nav">
+    <a href="#inicio" class="brand">SOFÍA<span>.exe</span></a>
+    <div class="nav-links">
+      <a href="#evidencias">Evidencias</a>
+    </div>
+    <div class="status">5.º SEMESTRE</div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="inicio">
+    <div>
+      <div class="kicker">// INGENIERÍA INFORMÁTICA · PORTAFOLIO</div>
+      <h1>SOFÍA<span>SEGUNDO.</span></h1>
+      <p class="hero-description">
+        Portafolio académico de evidencias en Desarrollo Personal y Social, Aprendizaje y Proyectos, y Profesional y Vocacional.
+      </p>
+    </div>
+
+    <aside class="identity">
+      <div class="identity-top">
+        <span>IDENTITY_CARD</span><span>001</span>
+      </div>
+      <div class="profile-photo">
+        <img src="Perfil.jpeg" alt="Fotografía de Sofía Segundo Martínez">
+      </div>
+      <div class="identity-name">Sofía Segundo Martínez</div>
+      <div class="identity-role">INGENIERÍA INFORMÁTICA</div>
+      <div class="identity-bottom">
+        <span>SEMESTRE</span>
+        <span>05 / TESSFP</span>
+      </div>
+    </aside>
+  </header>
+
+  <!-- SECCIÓN DE ACTIVIDADES -->
+  <section class="section" id="evidencias">
+    <div class="section-head">
+      <div><div class="section-number">PORTAFOLIO</div><h2>Actividades Desarrolladas.</h2></div>
+      <div class="section-note">EVIDENCIAS DIGITALES</div>
+    </div>
+
+    <div class="groups">
+      <!-- 1. Personal y Social -->
+      <article class="group">
+        <header class="group-head">
+          <h2>Personal y Social</h2>
+          <p>Creatividad, Liderazgo y Trabajo en equipo.</p>
+        </header>
+        <div class="group-body">
+
+          <!-- CREATIVIDAD -->
+          <div class="activity-box">
+            <h3>Creatividad</h3>
+            
+            <div class="evidence-img-container">
+              <img src="mapa.jpg" alt="Mapa Mental e Interfaz">
+            </div>
+
+            <div class="activity-detail">
+              <strong>Evidencia Desarrollada</strong>
+              <p>Mapa mental interactivo con tres vertientes de innovación en el campus y prototipo digital navegable enfocado en optimizar el control de préstamos de equipo en laboratorios del TESSFP.</p>
+              <ul>
+                <li><strong>Problema detectado:</strong> Filas y demora en registros manuales de equipos.</li>
+                <li><strong>Solución prototipada:</strong> Sistema de reservas digitales con interfaz moderna en Astro y Tailwind CSS.</li>
+              </ul>
+            </div>
+
+            <a href="mapa.jpg" target="_blank" class="action-btn">🔍 Ampliar Imagen</a>
+
+            <div class="activity-detail" style="margin-top: 12px;">
+              <strong>Reflexión de cierre</strong>
+              <p class="italic">"Esta propuesta aporta valor directo al optimizar el tiempo de los alumnos en el plantel, eliminando filas y garantizando que los recursos tecnológicos estén organizados cuando los laboratorios se utilizan."</p>
+            </div>
+          </div>
+
+          <!-- LIDERAZGO Y TRABAJO EN EQUIPO -->
+          <div class="activity-box">
+            <h3>Liderazgo y trabajo en equipo</h3>
+            
+            <div class="evidence-img-container">
+              <img src="tablero.jpg" alt="Tablero Kanban y Minuta">
+            </div>
+
+            <div class="activity-detail">
+              <strong>Evidencia Desarrollada</strong>
+              <p>Tablero Kanban digital y minuta de equipo para la organización y seguimiento del microreto semanal de programación y despliegue de microservicios.</p>
+              <ul>
+                <li><strong>Organización:</strong> Distribución estratégica de roles en backend (FastAPI) y bases de datos (MySQL).</li>
+                <li><strong>Seguimiento:</strong> Monitoreo de tareas mediante tablero y acuerdos de equipo documentados.</li>
+              </ul>
+            </div>
+
+            <a href="tablero.jpg" target="_blank" class="action-btn">🔍 Ampliar Imagen</a>
+
+            <div class="activity-detail" style="margin-top: 12px;">
+              <strong>Reflexión de cierre</strong>
+              <p class="italic">"Favorecí la colaboración mediante la escucha activa, estableciendo entregables diarios claros y dividiendo los requerimientos en tareas pequeñas para que cada integrante aportara al proyecto de forma fluida."</p>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- 2. Aprendizaje y Proyectos -->
+      <article class="group">
+        <header class="group-head">
+          <h2>Aprendizaje y Proyectos</h2>
+          <p>Aprendizaje basado en proyectos, Emprendimiento social y económico.</p>
+        </header>
+        <div class="group-body">
+
+          <!-- APRENDIZAJE BASADO EN PROYECTOS -->
+          <div class="activity-box">
+            <h3>Aprendizaje basado en proyectos</h3>
+            
+            <div class="evidence-img-container">
+              <img src="Ficha.jpg" alt="Ficha de Proyecto Lotería Mazahua">
+            </div>
+
+            <div class="activity-detail">
+              <strong>Evidencia Desarrollada</strong>
+              <p>Ficha técnica de proyecto y prototipo interactivo para la plataforma educativa «Lotería Mazahua» orientada a la preservación lingüística regional.</p>
+              <ul>
+                <li><strong>Arquitectura:</strong> Integración de hardware con lector RFID (RC522) y ESP32 vía puerto serial, respaldado por backend en FastAPI y base de datos MySQL.</li>
+                <li><strong>Alcance:</strong> Reproducción de audio nativo y gestión de vocabulario en interfaz web con Astro.</li>
+              </ul>
+            </div>
+
+            <a href="Ficha.jpg" target="_blank" class="action-btn">🔍 Ampliar Imagen</a>
+
+            <div class="activity-detail" style="margin-top: 12px;">
+              <strong>Reflexión de cierre</strong>
+              <p class="italic">"La solución ofrece un valor real al integrar hardware accesible y software moderno que preserva la cultura regional de una manera interactiva, práctica y significativa para la comunidad."</p>
+            </div>
+          </div>
+
+          <!-- EMPRENDIMIENTO SOCIAL Y ECONÓMICO -->
+          <div class="activity-box">
+            <h3>Emprendimiento social y económico</h3>
+            
+            <div class="evidence-img-container">
+              <img src="Lienso.jpg" alt="Lienzo de Modelo de Negocio">
+            </div>
+
+            <div class="activity-detail">
+              <strong>Evidencia Desarrollada</strong>
+              <p>Lienzo de modelo de negocio de impacto (Social Business Model Canvas) para la mochila escolar con sistema fotovoltaico flexible integrado.</p>
+              <ul>
+                <li><strong>Propuesta de valor:</strong> Mochila equipada con panel solar de 10W y batería desmontable de 20,000 mAh para dispositivos móviles.</li>
+                <li><strong>Viabilidad:</strong> Solución portátil para estudiantes en áreas sin acceso a tomacorrientes en el campus.</li>
+              </ul>
+            </div>
+
+            <a href="Lienso.jpg" target="_blank" class="action-btn">🔍 Ampliar Imagen</a>
+
+            <div class="activity-detail" style="margin-top: 12px;">
+              <strong>Reflexión de cierre</strong>
+              <p class="italic">"Para equilibrar la sostenibilidad y el impacto social, se debe garantizar que el costo de fabricación sea accesible sin comprometer la calidad del panel ni la seguridad del almacenamiento energético."</p>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- 3. Profesional y Vocacional -->
+      <article class="group">
+        <header class="group-head">
+          <h2>Profesional y Vocacional</h2>
+          <p>CV Profesional, identidad y ética profesional.</p>
+        </header>
+        <div class="group-body">
+
+          <!-- CV PROFESIONAL -->
+          <div class="activity-box">
+            <h3>CV Profesional</h3>
+            
+            <div class="activity-detail">
+              <strong>Evidencia Desarrollada</strong>
+              <p>Currículum vitae profesional estructurado con perfil en ingeniería informática, stack técnico (Python, FastAPI, MySQL, Astro), proyectos académicos y certificaciones vigentes.</p>
+            </div>
+
+            <!-- ENLACE AL PDF CON NOMBRE EXACTO -->
+            <a href="CV _ Sofía Segundo Martínez.pdf" download="CV _ Sofía Segundo Martínez.pdf" target="_blank" class="download-btn">📥 Descargar mi CV en PDF</a>
+
+            <div class="activity-detail" style="margin-top: 12px;">
+              <strong>Reflexión de cierre</strong>
+              <p class="italic">"Hoy puedo demostrar fortalezas en el desarrollo full-stack e integración de hardware. Antes de mis prácticas profesionales debo fortalecer mi dominio en testing automatizado y arquitectura en la nube."</p>
+            </div>
+          </div>
+
+          <!-- IDENTIDAD Y ÉTICA PROFESIONAL -->
+          <div class="activity-box">
+            <h3>Identidad, ética profesional</h3>
+            
+            <div class="activity-detail">
+              <strong>Evidencia Desarrollada</strong>
+              <p>Código de ética personal enfocado en la responsabilidad profesional, confidencialidad de datos y el impacto social del desarrollo de software e IoT.</p>
+              <ul>
+                <li><strong>Principios rectores:</strong> Protección de datos personales, uso responsable de la tecnología y honestidad intelectual.</li>
+                <li><strong>Dilema ético analizado:</strong> Protocolos de seguridad en el tratamiento de identificadores únicos (UIDs) en dispositivos RFID.</li>
+              </ul>
+            </div>
+
+            <div class="activity-detail" style="margin-top: 12px;">
+              <strong>Reflexión de cierre</strong>
+              <p class="italic">"La ética guía mis decisiones al garantizar que cada sistema o proyecto que desarrolle proteja la privacidad, promueva el bienestar social y cumpla con los estándares deontológicos de la informática."</p>
+            </div>
+          </div>
+
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <span>SOFÍA SEGUNDO MARTÍNEZ © 2026</span>
+    <span>TECNOLÓGICO DE ESTUDIOS SUPERIORES DE SAN FELIPE DEL PROGRESO</span>
+  </footer>
+
+</div>
+</body>
+</html>
